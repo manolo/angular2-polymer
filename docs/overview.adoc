@@ -1,0 +1,32 @@
+---
+title: Overview
+order: 1
+layout: page
+---
+
+
+[[vaadin-angular2-polymer.overview]]
+== Overview
+
+`angular2-polymer` is a directive factory that aims at bridging the gaps between using link:https://www.polymer-project.org[Polymer] based Web Components in link:https://angular.io/[Angular 2] applications.
+
+[source,typescript]
+----
+import { PolymerElement } from '@vaadin/angular2-polymer';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    <paper-input [(value)]="myValue"></paper-input>
+    <vaadin-combo-box [(value)]="myValue" [items]="myItems"></vaadin-combo-box>
+  `,
+  directives: [
+    PolymerElement('paper-input'),
+    PolymerElement('vaadin-combo-box')
+  ]
+})
+export class MyComponent {
+   myValue = 'A';
+   myItems = ['A', 'B', 'C'];
+}
+----
